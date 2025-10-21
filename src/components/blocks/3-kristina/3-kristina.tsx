@@ -36,29 +36,33 @@ export default function KristinaBlock({ className }: { className?: string }) {
   return (
     <section
       ref={sectionRef}
-      className={`container ${className} overflow-hidden w-full flex items-start `}
+      className={`container ${className} overflow-hidden w-full flex max-sm:flex-col items-start tracking-[-3%] space-x-5`}
     >
-      <Image
+      <div className="flex items-center space-x-5 grow-0 xl:w-66 md:w-52.75 w-40"
         ref={pushIfNotNull(elementsRef.current)}
-        src={kristinaImage}
-        alt="Picture of Kristina Konstantinova"
-        className="object-cover object-center xl:w-66 w-52.75 grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in"
-        layout="cover"
-      />
-      <div ref={pushIfNotNull(elementsRef.current)} className="ml-5 tracking-[-3%] ">
+      >
+        <Image
+          src={kristinaImage}
+          alt="Picture of Kristina Konstantinova"
+          className="object-cover object-center grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in
+          "
+          layout="cover"
+        />
         <h2
-          className="uppercase text-[5rem] leading-[4.375rem] font-ricks -ml-15 xl:mt-15.5 mt-9"
+          className="uppercase z-10 md:text-[5rem] md:leading-[4.375rem] text-[2.8125rem] leading-[0.89] font-ricks -ml-15 max-sm:mt-0.5"
         >
           Кристина <br />
           константинова
         </h2>
+      </div>
+      <div ref={pushIfNotNull(elementsRef.current)} className="">
         <div
-          className="text-lg leading-[1.6875rem] mt-5 font-medium max-w-[34.375rem]"
+          className="text-lg leading-[1.6875rem] xl:mt-55.5 md:mt-49 mt-10 font-medium max-w-[34.375rem]"
         >
           Парикмахер-стилист с международной квалификацией, выпускница академий Toni&amp;Guy, Saco, Pivot Point, L’Oréal, участница World Hairdressing Championship in Milan, работала на MBFW, в глянце, кино и рекламе, сертифицированный оптический стилист Lunetier.
         </div>
-        <Link className="text-[2.875rem] tracking-[-3%] leading-[1.275] underline uppercase mt-15 font-ricks inline-block" href={Contacts.yclients}>записаться онлайн</Link>
-        <ContactsBlock className="mt-12.5" />
+        <Link className="md:text-[2.875rem] md:leading-[1.275] text-3xl leading-[1.133] tracking-[-3%] underline uppercase mt-15 font-ricks inline-block" href={Contacts.yclients}>записаться онлайн</Link>
+        <ContactsBlock className="md:mt-12.5 mt-9" />
       </div>
     </section>
   );

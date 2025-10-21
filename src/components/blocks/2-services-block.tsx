@@ -50,9 +50,14 @@ const services: ServiceType[] = [
 
 export default function ServicesBlock({ className }: { className?: string }) {
   return (
-    <div className={cn(className, "grid md:grid-cols-2 grid-cols-1 xl:gap-x-17 gap-x-5 gap-y-[3rem] xl:pl-1.5 xl:pr-12")}>
+    <div className={cn(className, "grid md:grid-cols-2 grid-cols-1 xl:gap-x-17 gap-x-5 md:gap-y-[3rem] gap-y-10 xl:pl-1.5 xl:pr-12")}>
       {services.map((service) => (
-        <Service className="xl:nth-[1]:ml-22 xl:nth-[2n]:mt-14 nth-[2n]:mt-28 xl:nth-[4]:translate-x-[-5.75rem] xl:nth-[5]:translate-x-[11.5rem] xl:nth-[6]:ml-[5.75rem]" key={service.header} header={service.header} time={service.time} cost={service.cost}>
+        <Service className="
+          xl:nth-[1]:ml-22 
+          xl:nth-[2n]:mt-14 md:nth-[2n]:mt-28
+          xl:nth-[4]:translate-x-[-5.75rem]
+          xl:nth-[5]:translate-x-[11.5rem]
+          xl:nth-[6]:ml-[5.75rem]" key={service.header} header={service.header} time={service.time} cost={service.cost}>
           {service.description}
         </Service>
       ))}
@@ -63,7 +68,7 @@ export default function ServicesBlock({ className }: { className?: string }) {
 function Service({ header, children, time, cost, className }: { header: string, children: ReactNode | ReactNode[], time: string, cost: string, className?: string }) {
   return (
     <div className={cn(className, "flex flex-col tracking-[-3%]")}>
-      <h2 className="text-[3.125rem] leading-[3.5rem]  font-medium font-ricks uppercase">{header}</h2>
+      <h2 className="md:text-[3.125rem] md:leading-[3.5rem] text-3xl leading-[1.133] font-medium font-ricks uppercase">{header}</h2>
       <p className="mt-2.5 text-lg leading-[1.6875rem] tracking-[-3%]">
         {children} <br />
         {time} — {cost}

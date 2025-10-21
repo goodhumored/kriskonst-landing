@@ -14,7 +14,7 @@ import pic10 from "@/../public/pic10.png";
 
 interface PictureCardProps {
   src: StaticImageData;
-  alt: string;
+  alt?: string;
   text: string;
   className?: string;
 }
@@ -24,11 +24,14 @@ function PictureCard({ src, alt, text, className }: PictureCardProps) {
     <div className={`absolute group overflow-hidden ${className}`}>
       <Image
         src={src}
-        alt={alt}
+        alt={alt ?? text}
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-        <p className="text-white p-4 text-sm font-medium">{text}</p>
+      <div className="absolute bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end
+        h-[37%] w-full bottom-0
+        whitespace-pre-wrap
+        p-5 font-medium text-lg leading-[1.33] tracking-[-3%]">
+        {text}
       </div>
     </div>
   );
@@ -39,92 +42,82 @@ export default function PicturesBlock({ className }: { className?: string }) {
     <div className={`${className} relative w-full *:aspect-[2/3] *:h-auto`}>
       <PictureCard
         src={pic1}
-        alt="Fashion portrait 1"
-        text="Elegant style"
+        text={`Съёмка рекламной\nкампании бренда`}
         className="top-0 left-0
-        xl:w-[32.14%] md:w-[48.51%]"
+        xl:w-[32.14%] md:w-[48.51%] w-[74.24%]"
       />
       <PictureCard
         src={pic2}
-        alt="Fashion portrait 2"
-        text="Modern look"
+        text={`Mercedes Benz\nFashion Week`}
         className="
-        xl:w-[23.66%] md:w-[31.34%]
-        xl:top-[1.94%] md:top-0 
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]
+        xl:top-[1.94%] md:top-0 top-[16.8%]
         right-0
         "
       />
       <PictureCard
         src={pic3}
-        alt="Fashion portrait 3"
-        text="Bold fashion"
+        text={`Мероприятие\nЕкатерина Шпица`}
         className="
-        xl:top-[19.07%] md:top-[17.6%]
+        xl:top-[19.07%] md:top-[17.6%] top-[21.8%]
         xl:left-[42.4%] md:left-[51.5%]
-        xl:w-[23.66%] md:w-[31.34%]"
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic4}
-        alt="Fashion portrait 4"
-        text="Street style"
+        text={`Mercedes Benz\nFashion Week`}
         className="
-        xl:top-[27.66%] md:top-[35.4%]
+        xl:top-[27.66%] md:top-[35.4%] top-[41.7%]
         xl:right-[8.5%] md:right-0
-        xl:w-[23.66%] md:w-[31.34%]"
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic5}
-        alt="Fashion portrait 5"
-        text="Classic beauty"
+        text={`Mercedes Benz\nFashion Week`}
         className="
-        xl:top-[36.21%] md:top-[26%]
-        xl:left-[8.9%] md:left-0
-        xl:w-[23.66%] md:w-[31.34%] "
+        xl:top-[36.21%] md:top-[26%] top-[31.8%]
+        xl:left-[8.9%] md:left-0 max-sm:right-0
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic6}
-        alt="Fashion portrait 6"
-        text="Contemporary fashion"
+        text={`Mercedes Benz\nFashion Week`}
         className="
-        xl:bottom-[29.47%] md:bottom-[41.17%]
-        xl:left-[34.45%] md:left-[17.15%]
-        xl:w-[23.66%] md:w-[31.34%]"
+        xl:bottom-[29.47%] md:bottom-[41.17%] bottom-[43.4%]
+        xl:left-[34.45%] md:left-[17.15%] max-sm:right-0
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic7}
-        alt="Fashion portrait 7"
-        text="Luxury style"
+        text={`Съёмка кампейна\nThe Irony`}
         className="
-        xl:bottom-[20.9%] md:bottom-[23.55%]
+        xl:bottom-[20.9%] md:bottom-[23.55%] bottom-[33.4%]
         left-0
-        xl:w-[23.66%] md:w-[31.34%] "
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic8}
-        alt="Fashion portrait 8"
-        text="Creative duo"
+        text="Запуск проекта Блэк стар"
         className="
-        xl:bottom-[23.3%] md:bottom-[17.66%]
+        xl:bottom-[23.3%] md:bottom-[17.66%] bottom-[16.7%]
         right-0
-        xl:w-[32.14%] md:w-[48.51%] "
+        xl:w-[32.14%] md:w-[48.51%] w-[74.24%]"
       />
       <PictureCard
         src={pic9}
-        alt="Fashion portrait 9"
-        text="Avant-garde"
+        text="Cosmopolitan Russia"
         className="
-        xl:bottom-[0.5] md:bottom-[2.43%]
+        xl:bottom-[0.5] md:bottom-[2.43%] bottom-[5.05%]
         left-[0]
-        xl:w-[23.66%] md:w-[31.34%] "
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
         src={pic10}
-        alt="Fashion portrait 10"
-        text="Timeless elegance"
+        text={`Обложка\nдля журнала OK!`}
         className="
-        xl:bottom-[6.15%] md:bottom-[0]
-        xl:left-[42.4%] md:left-[51.5%]
-        xl:w-[23.66%] md:w-[31.34%]"
+        xl:bottom-[6.15%] bottom-[0]
+        xl:left-[42.4%] md:left-[51.5%] max-sm:right-0
+        xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
     </div>
   );
