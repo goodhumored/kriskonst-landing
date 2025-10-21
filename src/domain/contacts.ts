@@ -10,5 +10,5 @@ export default class Contacts {
     telegram: "https://t.me/Fedor_Beltugov",
     instagram: "https://www.instagram.com/beltugov/",
   };
-  static yclients = "";
+  static yclients = "https://n1297917.yclients.com/";
 }

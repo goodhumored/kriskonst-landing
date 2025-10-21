@@ -33,5 +33,4 @@ export default function ContactsBlock({ className }: { className?: string }) {
       <div className="mt-5 text-[0.9375rem] leading-[1.25]">{Contacts.address}</div>
     </div>
   )
-  {/* asdf */ }
 }

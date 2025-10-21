@@ -14,7 +14,7 @@ export default function Home() {
       <ServicesBlock className="md:mt-14.5 mt-14" />
       <KristinaBlock className="xl:mt-50 md:mt-37.5 mt-25 xl:px-24" />
       <PicturesBlock className="
-        xl:mt-50 md:mt-37.5 mt-25
+        xl:mt-50 md:mt-37.5 mt-50
         xl:h-[193vw] md:h-[270.703vw] h-[670.833vw]
         " />
       <p className="mt-20 md:text-[3.125rem] md:leading-[3.5rem] text-3xl leading-[1.133] tracking-[-3%] font-ricks uppercase">А также — опыт съёмок для глянцевых журналов, кино и телевидения, модных показов и крупных мероприятий. Среди проектов — Cosmopolitan, реклама Audi, Mercedes-Benz Fashion Week. Сотрудничала с Бастой, Юлией Ковальчук, Екатериной Шпицей и другими.</p>

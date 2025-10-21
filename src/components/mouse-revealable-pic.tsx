@@ -43,7 +43,7 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
           if (!image) return;
           const x = animatableMouse['x']() as number;
           const y = animatableMouse['y']() as number;
-          console.log('areaX, areaY:', areaX, areaY);
+          // console.log('areaX, areaY:', areaX, areaY);
           mask.style.transform = `translate3d(${(x - areaX! / 2)}px, ${(y - areaY! / 2)}px, 0)`;
           image.style.transform = `translate3d(${(areaX! / 2 - x)}px, ${(areaY! / 2 - y)}px, 0)`;
         };
@@ -55,7 +55,7 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
       animatableMouse['y'](newY)
     }
     const handleMouseLeave = () => {
-      if (!animatableMouse['x'] || !animatableMouse['y']) return;
+      if (!animatableMouse || !animatableMouse['x'] || !animatableMouse['y']) return;
       animatableMouse['x'](canvas.clientWidth * 58 / 100)
       animatableMouse['y'](canvas.clientHeight * 5 / 11)
     }
@@ -74,6 +74,7 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
       const image = mask.children[0] as HTMLImageElement;
       image.style.width = `${(canvas.clientWidth as number)}px`;
       image.style.height = `${(canvas.clientHeight as number)}px`;
+      handleMouseLeave()
     }
     // console.log('Adding event listeners');
     canvas.addEventListener('mousemove', handleMouseMove as any);

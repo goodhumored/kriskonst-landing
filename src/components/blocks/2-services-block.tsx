@@ -1,5 +1,8 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import React, { ReactNode } from "react";
+import { animate, onScroll, stagger } from "animejs";
+import React, { ReactNode, useEffect } from "react";
 
 type ServiceType = {
   header: string;
@@ -49,10 +52,29 @@ const services: ServiceType[] = [
 
 
 export default function ServicesBlock({ className }: { className?: string }) {
+  useEffect(() => {
+    animate(".service-item", {
+      opacity: [0, 1],
+      translateY: [75, 0],
+      delay: stagger(250),
+      duration: 1200,
+      easing: "easeOutQuad",
+      autoplay: onScroll({
+        // debug: true,
+        enter: "bottom top",
+        leave: "bottom 75%",
+        target: "#services",
+        container: document.body,
+        sync: true,
+      }),
+    }
+    )
+  }, [])
   return (
-    <div className={cn(className, "grid md:grid-cols-2 grid-cols-1 xl:gap-x-17 gap-x-5 md:gap-y-[3rem] gap-y-10 xl:pl-1.5 xl:pr-12")}>
+    <div id="services" className={cn(className, "grid md:grid-cols-2 grid-cols-1 xl:gap-x-17 gap-x-5 md:gap-y-[3rem] gap-y-10 xl:pl-1.5 xl:pr-12")}>
       {services.map((service) => (
         <Service className="
+          service-item
           xl:nth-[1]:ml-22 
           xl:nth-[2n]:mt-14 md:nth-[2n]:mt-28
           xl:nth-[4]:translate-x-[-5.75rem]

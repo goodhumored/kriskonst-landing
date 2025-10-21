@@ -42,7 +42,7 @@ export default function Header({ className }: { className?: string }) {
             " transition-transform duration-300 sm:hidden inline-flex items-center justify-center rounded-md group focus:outline-none focus:ring-2 focus:ring-inset",
           )}
         >
-          <BurgerIcon className="fill-[#EAE9E4] transition-colors duration-300 group-hover:fill-[#FF3F1A]" />
+          <BurgerIcon className="fill-[#EAE9E4]" />
         </button>
       </div>
 

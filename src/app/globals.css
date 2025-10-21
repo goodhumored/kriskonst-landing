@@ -3,6 +3,8 @@
 :root {
   --background: #010101;
   --foreground: #EAE9E4;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 @theme inline {
@@ -22,6 +24,10 @@
     --foreground: #EAE9E4;
   }
 }
+
+  .animated {
+    will-change: transform;
+  }
 
 body {
   background: var(--background);

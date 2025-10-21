@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import kristinaImage from "@/../public/ava_1.png";
+import kristinaImage from "@/../public/ava_1.webp";
 import { useEffect, useRef } from "react";
 import { animate, onScroll, stagger } from "animejs";
 import pushIfNotNull from "@/lib/push-if-not-null";
@@ -35,6 +35,7 @@ export default function KristinaBlock({ className }: { className?: string }) {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className={`container ${className} overflow-hidden w-full flex max-sm:flex-col items-start tracking-[-3%] space-x-5`}
     >
@@ -43,9 +44,8 @@ export default function KristinaBlock({ className }: { className?: string }) {
       >
         <Image
           src={kristinaImage}
-          alt="Picture of Kristina Konstantinova"
-          className="object-cover object-center grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in
-          "
+          alt="Кристина Константинова"
+          className="object-cover object-center grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in"
           layout="cover"
         />
         <h2
