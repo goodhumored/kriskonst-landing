@@ -41,61 +41,90 @@ export default function PicturesBlock({ className }: { className?: string }) {
         src={pic1}
         alt="Fashion portrait 1"
         text="Elegant style"
-        className="top-0 left-0 w-[32.14%]"
+        className="top-0 left-0
+        xl:w-[32.14%] md:w-[48.51%]"
       />
       <PictureCard
         src={pic2}
         alt="Fashion portrait 2"
         text="Modern look"
-        className="top-[1.94%] right-0 w-[23.66%]"
+        className="
+        xl:w-[23.66%] md:w-[31.34%]
+        xl:top-[1.94%] md:top-0 
+        right-0
+        "
       />
       <PictureCard
         src={pic3}
         alt="Fashion portrait 3"
         text="Bold fashion"
-        className="top-[19.07%] left-[42.4%] w-[23.66%]"
+        className="
+        xl:top-[19.07%] md:top-[17.6%]
+        xl:left-[42.4%] md:left-[51.5%]
+        xl:w-[23.66%] md:w-[31.34%]"
       />
       <PictureCard
         src={pic4}
         alt="Fashion portrait 4"
         text="Street style"
-        className="top-[27.66%] right-[8.5%] w-[23.66%]"
+        className="
+        xl:top-[27.66%] md:top-[35.4%]
+        xl:right-[8.5%] md:right-0
+        xl:w-[23.66%] md:w-[31.34%]"
       />
       <PictureCard
         src={pic5}
         alt="Fashion portrait 5"
         text="Classic beauty"
-        className="top-[36.21%] left-[8.9%] w-[23.66%] "
+        className="
+        xl:top-[36.21%] md:top-[26%]
+        xl:left-[8.9%] md:left-0
+        xl:w-[23.66%] md:w-[31.34%] "
       />
       <PictureCard
         src={pic6}
         alt="Fashion portrait 6"
         text="Contemporary fashion"
-        className="bottom-[29.47%] left-[34.45%] w-[23.66%]"
+        className="
+        xl:bottom-[29.47%] md:bottom-[41.17%]
+        xl:left-[34.45%] md:left-[17.15%]
+        xl:w-[23.66%] md:w-[31.34%]"
       />
       <PictureCard
         src={pic7}
         alt="Fashion portrait 7"
         text="Luxury style"
-        className="bottom-[20.9%] left-0 w-[23.66%] "
+        className="
+        xl:bottom-[20.9%] md:bottom-[23.55%]
+        left-0
+        xl:w-[23.66%] md:w-[31.34%] "
       />
       <PictureCard
         src={pic8}
         alt="Fashion portrait 8"
         text="Creative duo"
-        className="bottom-[23.3%] right-0 w-[32.14%]"
+        className="
+        xl:bottom-[23.3%] md:bottom-[17.66%]
+        right-0
+        xl:w-[32.14%] md:w-[48.51%] "
       />
       <PictureCard
         src={pic9}
         alt="Fashion portrait 9"
         text="Avant-garde"
-        className="bottom-[0.5] left-[0] w-[23.66%] "
+        className="
+        xl:bottom-[0.5] md:bottom-[2.43%]
+        left-[0]
+        xl:w-[23.66%] md:w-[31.34%] "
       />
       <PictureCard
         src={pic10}
         alt="Fashion portrait 10"
         text="Timeless elegance"
-        className="bottom-[6.15%] left-[42.4%] w-[23.66%] "
+        className="
+        xl:bottom-[6.15%] md:bottom-[0]
+        xl:left-[42.4%] md:left-[51.5%]
+        xl:w-[23.66%] md:w-[31.34%]"
       />
     </div>
   );

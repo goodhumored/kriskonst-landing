@@ -12,8 +12,8 @@ export default function Home() {
       <HeroBlock className="" />
       <p className="mt-25 -tracking-[3%] text-[3.125rem] leading-[3.5rem] font-ricks uppercase">Индивидуально подобранная стрижка и цвет придадут уверенности, а авторский массаж головы снимет напряжение и подарит Вам невероятное расслабление.</p>
       <ServicesBlock className="mt-14.5" />
-      <KristinaBlock className="mt-50 px-24" />
-      <PicturesBlock className="mt-50 h-[144.75rem]" />
+      <KristinaBlock className="xl:mt-50 mt-37.5 xl:px-24" />
+      <PicturesBlock className="xl:mt-50 mt-37.5 xl:h-[144.75rem] h-[129.9375rem]" />
       <p className="mt-20 text-[3.125rem] leading-[3.5rem] tracking-[-3%] font-ricks uppercase">А также — опыт съёмок для глянцевых журналов, кино и телевидения, модных показов и крупных мероприятий. Среди проектов — Cosmopolitan, реклама Audi, Mercedes-Benz Fashion Week. Сотрудничала с Бастой, Юлией Ковальчук, Екатериной Шпицей и другими.</p>
       <Link className="mt-25 text-[5rem] leading-[5.3125rem] tracking-[-3%] underline uppercase font-ricks" href={Contacts.yclients}>записаться онлайн</Link>
     </main>

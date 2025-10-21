@@ -95,7 +95,7 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
             width: areaX,
             height: areaY,
           }}>
-          <Image className="max-w-none max-h-none object-contain" src={hiddenImage} alt="" />
+          <Image className="max-w-none max-h-none object-cover" src={hiddenImage} alt="" />
         </div>
       </div>
     </div>

@@ -15,14 +15,14 @@ export default function Header({ className }: { className?: string }) {
     <header
       className={cn(`w-full text-[#EAE9E4] `, className)}
     >
-      <div className={cn("mx-auto px-7.5 flex items-center")}>
+      <div className={cn("mx-auto xl:px-7.5 px-12 flex items-center")}>
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 flex items-center group">
           <Logo />
         </Link>
         <div className="grow-1"></div>
         {/* Desktop Navigation */}
-        <nav className="hidden sm:flex shrink-0 items-baseline lg:space-x-12.5 space-x-7.5 flex-nowrap">
+        <nav className="hidden sm:flex shrink-0 items-baseline space-x-12.5 flex-nowrap">
           {menuItems.map((item) => (
             <HeaderItem
               className="shrink-0"

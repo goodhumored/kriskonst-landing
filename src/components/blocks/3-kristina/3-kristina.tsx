@@ -42,12 +42,12 @@ export default function KristinaBlock({ className }: { className?: string }) {
         ref={pushIfNotNull(elementsRef.current)}
         src={kristinaImage}
         alt="Picture of Kristina Konstantinova"
-        className="object-cover object-center w-66 grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in"
+        className="object-cover object-center xl:w-66 w-52.75 grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in"
         layout="cover"
       />
       <div ref={pushIfNotNull(elementsRef.current)} className="ml-5 tracking-[-3%] ">
         <h2
-          className="uppercase text-[5rem] leading-[4.375rem] font-ricks lg:-ml-15 mt-15.5"
+          className="uppercase text-[5rem] leading-[4.375rem] font-ricks -ml-15 xl:mt-15.5 mt-9"
         >
           Кристина <br />
           константинова

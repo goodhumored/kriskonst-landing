@@ -40,7 +40,7 @@ const services: ServiceType[] = [
     cost: "от 3 000 ₽",
   },
   {
-    header: "Эпиляция нос/уши/брови",
+    header: "Эпиляция нос⁠/⁠уши⁠/⁠брови",
     description: "Быстро, безопасно, комфортно.",
     time: "10–15 мин",
     cost: "от 600 ₽",
@@ -50,9 +50,9 @@ const services: ServiceType[] = [
 
 export default function ServicesBlock({ className }: { className?: string }) {
   return (
-    <div className={cn(className, "grid xl:grid-cols-2 grid-cols-1 gap-x-17 gap-y-[3rem] pl-1.5 pr-12")}>
+    <div className={cn(className, "grid md:grid-cols-2 grid-cols-1 xl:gap-x-17 gap-x-5 gap-y-[3rem] xl:pl-1.5 xl:pr-12")}>
       {services.map((service) => (
-        <Service className="nth-[1]:ml-22 nth-[2n]:mt-14 nth-[4]:translate-x-[-5.75rem] nth-[5]:translate-x-[11.5rem] nth-[6]:ml-[5.75rem]" key={service.header} header={service.header} time={service.time} cost={service.cost}>
+        <Service className="xl:nth-[1]:ml-22 xl:nth-[2n]:mt-14 nth-[2n]:mt-28 xl:nth-[4]:translate-x-[-5.75rem] xl:nth-[5]:translate-x-[11.5rem] xl:nth-[6]:ml-[5.75rem]" key={service.header} header={service.header} time={service.time} cost={service.cost}>
           {service.description}
         </Service>
       ))}
