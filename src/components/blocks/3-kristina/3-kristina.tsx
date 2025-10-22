@@ -25,7 +25,7 @@ export default function KristinaBlock({ className }: { className?: string }) {
       duration: 1000,
       easing: "easeInOutQuad",
       delay: 0,
-      debug: true,
+      // debug: true,
       autoplay: onScroll({
         target: section,
         container: document.body,

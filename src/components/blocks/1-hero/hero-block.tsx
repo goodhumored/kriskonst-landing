@@ -6,18 +6,18 @@ import MouseRevealablePicture from "@/components/mouse-revealable-pic";
 
 export default function HeroBlock({ className }: { className?: string }) {
   return (
-    <div id="home" className={`${className} flex flex-col justify-center items-center w-full md:h-[50rem] h-[43rem] relative overflow-hidden`}>
-      <Image src={man1} className="pointer-events-none absolute -z-1 h-full w-full object-cover max-w-none" alt="" quality={100} priority={true} loading="eager" />
-      <h1 className="z-10 pointer-events-none absolute leading-[1.28] font-ricks tracking-[-3%] uppercase max-w-[44rem]
+    <div id="home" className={`${className} [box-shadow:inset_0_-25px_50px_#000] flex flex-col justify-center items-center w-full md:h-[50rem] h-[43rem] relative overflow-hidden`}>
+      <Image src={man1} className="  pointer-events-none absolute -z-1 h-full w-full object-cover max-w-none" alt="" quality={100} priority={true} loading="eager" /> <h1 className="z-10 pointer-events-none absolute leading-[1.28] font-ricks tracking-[-3%] uppercase max-w-[44rem]
         xl:w-[64%] w-full
         md:top-[48%] top-[50%]
         xl:left-[13.7%] 
         md:text-[7.625rem] text-[4.75rem]">
-        <span className="text-left">Скульптурная</span>
+        <span className="text-left select-none">Скульптурная</span>
         <br />
         <span className="text-right block w-full md:-mt-8 -mt-5">стрижка</span>
       </h1>
       <MouseRevealablePicture area={{ y: 0.25 }} className="z-9 aspect-square" hiddenImage={man2} />
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent to-5% opacity-80"></div> */}
     </div>
   )
 }

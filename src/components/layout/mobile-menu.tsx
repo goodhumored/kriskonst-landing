@@ -7,7 +7,7 @@ import ContactsBlock from "../contacts-block";
 
 export default function MobileMenu({ className, onClose }: { className?: string, onClose: () => void }) {
   return (
-    <div className={cn(className, "fixed -z-1 top-0 h-screen left-0 w-screen transition-[translate] duration-300 overflow-scroll",
+    <div className={cn(className, "fixed -z-1 top-0 h-screen left-0 w-screen transition-[translate] duration-300 overflow-scroll space-y-10",
       "px-3.75 pt-30.5 bg-black flex flex-col pb-15 justify-between ",
     )}
     >

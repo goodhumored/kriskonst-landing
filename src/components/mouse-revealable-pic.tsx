@@ -3,6 +3,7 @@
 import { AnimatableObject, createAnimatable } from "animejs";
 import React, { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import { warnOptionHasBeenMovedOutOfExperimental } from "next/dist/server/config";
 
 interface XYPair {
   x: number;
@@ -23,17 +24,14 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
     if (!canvas || !mask) return;
 
     let animatableMouse: AnimatableObject;
-    const handleMouseMove = (e: React.MouseEvent) => {
-      const rect = (e.target as HTMLElement).getBoundingClientRect();
-      const newX = (e.clientX - rect.left);
-      const newY = (e.clientY - rect.top);
-      // console.log('Mouse move:', newX, newY);
 
+    const ensureAnimatableMouse = () => {
       if (!animatableMouse) {
-        mouseRef.current = { x: newX, y: newY }
+        mouseRef.current.x = canvas.clientWidth * 58 / 100;
+        mouseRef.current.y = canvas.clientHeight * 5 / 11;
         animatableMouse = createAnimatable(mouseRef.current, {
-          x: 750,
-          y: 750,
+          x: canvas.clientWidth * 58 / 100,
+          y: canvas.clientHeight * 5 / 11,
           ease: 'out(5)',
           duration: 1000
         });
@@ -49,16 +47,41 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
         };
 
       }
+    }
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+      const rect = (e.target as HTMLElement).getBoundingClientRect();
+      const newX = (e.clientX - rect.left);
+      const newY = (e.clientY - rect.top);
+      // console.log('Mouse move:', newX, newY);
+
+      console.log('e', e)
+      // console.log('areaX, areaY:', areaX, areaY);
+      ensureAnimatableMouse();
       if (!animatableMouse['x'] || !animatableMouse['y']) return;
 
       animatableMouse['x'](newX)
       animatableMouse['y'](newY)
     }
+
     const handleMouseLeave = () => {
-      if (!animatableMouse || !animatableMouse['x'] || !animatableMouse['y']) return;
+      ensureAnimatableMouse();
+      if (!animatableMouse['x'] || !animatableMouse['y']) return;
       animatableMouse['x'](canvas.clientWidth * 58 / 100)
       animatableMouse['y'](canvas.clientHeight * 5 / 11)
     }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const rect = (e.target as HTMLElement).getBoundingClientRect();
+      const touch = e.touches[0];
+      const newX = (touch.clientX - rect.left);
+      const newY = (touch.clientY - rect.top);
+      ensureAnimatableMouse();
+      if (!animatableMouse['x'] || !animatableMouse['y']) return;
+      animatableMouse['x'](newX)
+      animatableMouse['y'](newY)
+    }
+
     const resizeHandler = () => {
       const { x: maskX, y: maskY } = mask.getBoundingClientRect();
       const { x: canvasX, y: canvasY, width: canvasWidth, height: canvasHeight } = canvas.getBoundingClientRect();
@@ -80,11 +103,15 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
     canvas.addEventListener('mousemove', handleMouseMove as any);
     canvas.addEventListener('mouseleave', handleMouseLeave as any);
     window.addEventListener('resize', resizeHandler);
+    canvas.addEventListener('touchmove', handleTouchMove as any, { passive: true });
+    canvas.addEventListener('touchend', handleMouseLeave as any);
     resizeHandler();
     return () => {
       canvas.removeEventListener('mousemove', handleMouseMove as any);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('resize', resizeHandler);
+      canvas.removeEventListener('touchmove', handleTouchMove as any);
+      canvas.removeEventListener('touchend', handleMouseLeave);
     };
   }, [_area.x, _area.y, areaX, areaY]);
 
@@ -96,7 +123,7 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
             width: areaX,
             height: areaY,
           }}>
-          <Image className="max-w-none max-h-none object-cover" src={hiddenImage} alt="" />
+          <Image className="max-w-none max-h-none object-cover pointer-events-none select-none" src={hiddenImage} alt="" />
         </div>
       </div>
     </div>

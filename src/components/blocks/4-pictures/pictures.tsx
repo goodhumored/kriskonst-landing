@@ -56,7 +56,7 @@ export default function PicturesBlock({ className }: { className?: string }) {
         container: document.body,
         sync: true,
         enter: "bottom -10%",
-        debug: true
+        // debug: true
       }),
     })
   }, [percent]);
