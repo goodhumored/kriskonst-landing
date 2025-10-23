@@ -16,17 +16,17 @@ export default function ContactsBlock({ className }: { className?: string }) {
         <Link target="_blank" href={Contacts.socialLinks.telegram}>
           <TelegramIcon className="fill-[#F0EDE8] hover:fill-[#FF3F1A] w-7.5 transition-colors duration-150 " />
         </Link>
-        <Link target="_blank" href={Contacts.socialLinks.linkedin}>
+        <Link target="_blank" href={Contacts.socialLinks.max}>
           <MaxIcon className="fill-[#F0EDE8] hover:fill-[#FF3F1A] w-7.5 transition-colors duration-150 " />
         </Link>
         <Link className="text-[2rem] leading-[1.3] tracking-[-3.75%] font-ricks" href={`tel:${Contacts.phone}`}>{Contacts.phone}</Link>
       </div>
       <div className="mt-7.5 flex flex-row space-x-5 *:transition-colors duration-300">
         <div className="font-medium text-lg">Я в соцсетях:</div>
-        <Link target="_blank" href={Contacts.socialLinks.whatsapp}>
+        <Link target="_blank" href={Contacts.socialLinks.telegram2}>
           <TelegramIcon className="fill-[#F0EDE8] hover:fill-[#FF3F1A] w-7.5 transition-colors duration-150 " />
         </Link>
-        <Link target="_blank" href={Contacts.socialLinks.telegram}>
+        <Link target="_blank" href={Contacts.socialLinks.vk}>
           <VkIcon className="fill-[#F0EDE8] hover:fill-[#FF3F1A] w-7.5 transition-colors duration-150 " />
         </Link>
       </div>

@@ -3,7 +3,6 @@
 import { AnimatableObject, createAnimatable } from "animejs";
 import React, { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import { warnOptionHasBeenMovedOutOfExperimental } from "next/dist/server/config";
 
 interface XYPair {
   x: number;

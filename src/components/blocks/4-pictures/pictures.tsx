@@ -21,11 +21,13 @@ interface PictureCardProps {
   text: string;
   className?: string;
   p?: number;
+  pm?: number;
+  psm?: number;
 }
 
-function PictureCard({ p, src, alt, text, className }: PictureCardProps) {
+function PictureCard({ p, pm, psm, src, alt, text, className }: PictureCardProps) {
   return (
-    <div {...{ p: p ?? Math.random() * 10 }} className={`picture-card absolute group overflow-hidden animated ${className}`}>
+    <div {...{ p, pm, psm }} className={`picture-card absolute group overflow-hidden animated ${className}`}>
       <Image
         src={src}
         alt={alt ?? text}
@@ -47,9 +49,15 @@ export default function PicturesBlock({ className }: { className?: string }) {
 
   useEffect(() => {
     animate(".picture-card", {
-      translateY: (el: unknown) => {
-        const p = Number((el as HTMLElement).getAttribute("p")) || 0;
-        return [-p * percent * 5, p * percent * 5];
+      translateY: (_el: unknown) => {
+        const el = _el as Element;
+        let p = Number(el.getAttribute("p") || 0);
+        const psm = Number(el.getAttribute("psm") || p);
+        const pm = Number(el.getAttribute("pm") || psm);
+        if (window.innerWidth >= 1200) p = p;
+        else if (window.innerWidth >= 768) p = pm;
+        else p = psm;
+        return [-p * percent * 10, p * percent * 10];
       },
       autoplay: onScroll({
         target: "#projects",
@@ -95,7 +103,8 @@ export default function PicturesBlock({ className }: { className?: string }) {
       />
       <PictureCard
         src={pic3}
-        p={0.05}
+        p={-0.25}
+        pm={-0.1}
         text={`Мероприятие\nЕкатерина Шпица`}
         className="
         xl:top-[19.07%] md:top-[17.6%] top-[21.8%]
@@ -103,7 +112,8 @@ export default function PicturesBlock({ className }: { className?: string }) {
         xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
-        p={0.65}
+        p={0.45}
+        psm={-0.25}
         src={pic4}
         text={`Mercedes Benz\nFashion Week`}
         className="
@@ -113,6 +123,7 @@ export default function PicturesBlock({ className }: { className?: string }) {
       />
       <PictureCard
         p={0.525}
+        pm={-0.25}
         src={pic5}
         text={`Mercedes Benz\nFashion Week`}
         className="
@@ -121,7 +132,9 @@ export default function PicturesBlock({ className }: { className?: string }) {
         xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
-        p={0.5}
+        p={-0.5}
+        pm={-0.1}
+        psm={0.25}
         src={pic6}
         text={`Mercedes Benz\nFashion Week`}
         className="
@@ -130,7 +143,7 @@ export default function PicturesBlock({ className }: { className?: string }) {
         xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
-        p={0}
+        p={-0.125}
         src={pic7}
         text={`Съёмка кампейна\nThe Irony`}
         className="
@@ -139,16 +152,18 @@ export default function PicturesBlock({ className }: { className?: string }) {
         xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
-        p={0.75}
+        p={0.5}
+        psm={-.1}
         src={pic8}
         text="Запуск проекта Блэк стар"
         className="
-        xl:bottom-[26.3%] md:bottom-[19.66%] bottom-[18.7%]
+        xl:bottom-[23.3%] md:bottom-[17.66%] bottom-[16.55%]
         right-0
         xl:w-[32.14%] md:w-[48.51%] w-[74.24%]"
       />
       <PictureCard
-        p={0.275}
+        p={-0.25}
+        psm={-.15}
         src={pic9}
         text="Cosmopolitan Russia"
         className="
@@ -157,7 +172,8 @@ export default function PicturesBlock({ className }: { className?: string }) {
         xl:w-[23.66%] md:w-[31.34%] w-[48.48%]"
       />
       <PictureCard
-        p={0.15}
+        p={0.05}
+        psm={-0.2}
         src={pic10}
         text={`Обложка\nдля журнала OK!`}
         className="

@@ -45,6 +45,7 @@ export default function KristinaBlock({ className }: { className?: string }) {
         <Image
           src={kristinaImage}
           alt="Кристина Константинова"
+          loading="eager"
           className="object-cover object-center grayscale hover:grayscale-0 transition-[filter] duration-350 ease-in"
           layout="cover"
         />
