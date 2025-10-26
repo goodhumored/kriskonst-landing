@@ -5,6 +5,10 @@
   --foreground: #EAE9E4;
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
+
+  img:-moz-loading {
+    visibility: hidden  !important;
+  }
 }
 
 @theme inline {

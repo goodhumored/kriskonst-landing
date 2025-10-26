@@ -2,14 +2,14 @@
 "use client";
 import { AnimatableObject, createAnimatable } from "animejs";
 import React, { useEffect, useRef, useState } from "react";
-import Image, { StaticImageData } from "next/image";
 
 interface XYPair {
   x: number;
   y: number;
 }
 
-export default function MouseRevealablePicture({ className, hiddenImage, area: _area = { x: 200, y: 200 } }: { className?: string, defaultPosition?: XYPair, area?: XYPair | { x: number, y?: number } | { y: number, x?: number }, hiddenImage: StaticImageData }) {
+// forwardref
+export default function MouseRevealablePicture({ className, ref, hiddenImage, area: _area = { x: 200, y: 200 } }: { className?: string, defaultPosition?: XYPair, area?: XYPair | { x: number, y?: number } | { y: number, x?: number }, hiddenImage: string | undefined, ref?: React.Ref<HTMLDivElement> }) {
   const mouseRef = useRef<XYPair>({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<HTMLDivElement | null>(null);
@@ -115,14 +115,14 @@ export default function MouseRevealablePicture({ className, hiddenImage, area: _
   }, [_area.x, _area.y, areaX, areaY]);
 
   return (
-    <div className={`absolute top-0 left-0 bottom-0 right-0 `} >
+    <div ref={ref} className={`absolute top-0 left-0 bottom-0 right-0 `} >
       <div ref={canvasRef} className="relative w-full h-full">
         <div ref={maskRef} className={`absolute pointer-events-none overflow-hidden ${className}`}
           style={{
             width: areaX,
             height: areaY,
           }}>
-          <Image className="max-w-none max-h-none object-cover pointer-events-none select-none" src={hiddenImage} alt="" />
+          <img className="max-w-none max-h-none object-cover pointer-events-none select-none" src={hiddenImage} alt="" />
         </div>
       </div>
     </div>
